@@ -1,5 +1,6 @@
 """Database factory module."""
 import os
+from dao.mongodb import MongoDB
 
 
 databse = {

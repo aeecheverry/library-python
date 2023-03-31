@@ -1,4 +1,4 @@
-"""Module that contains the decorator for API Key authorization."""
+"""Module that contains the authorization decorator."""
 import os
 from functools import wraps
 from flask import request
@@ -9,7 +9,7 @@ def verify_api_key(api_key):
     """Function that verifies the validity of the API Key token."""
     return api_key == API_KEY
 
-def require_api_key(view_function):
+def require_authorizer(view_function):
     """Decorator that verifies the validity of the API Key token."""
     @wraps(view_function)
     def decorated_function(*args, **kwargs):

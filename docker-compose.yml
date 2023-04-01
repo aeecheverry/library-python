@@ -1,0 +1,21 @@
+#write a docker compose yml file with mongodb and my custom python image
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+    restart: always
+
+  library:
+    build: .
+    container_name: library
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    restart: always

@@ -15,6 +15,13 @@ class BookDAO:
     def list(self):
         """List books"""
         return self.collection.find()
+    
+    def search(self, query):
+        """Search books"""
+        filter_query = {}
+        for field, value in query.items():
+            filter_query[field] = value
+        return list(self.collection.find(filter_query))
 
     def get(self, book_id):
         """Get book"""

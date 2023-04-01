@@ -1,12 +1,10 @@
 """MongoDB DAO"""
-
 import os
-from dao.mongodb.userdao import UserDAO
-
 from pymongo import MongoClient
+from mongodb.bookdao import BookDAO
 
 daoMap = {
-    "userdao": UserDAO,
+    "book_dao": BookDAO,
 }
 
 class MongoDB:

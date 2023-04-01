@@ -19,6 +19,7 @@ class LibraryRoutes:
 
         @app.errorhandler(Exception)
         def handle_error(error):
+            """Handle error."""
             response = {"message": str(error)}
             return jsonify(response), 500
 
@@ -28,7 +29,6 @@ class LibraryRoutes:
             """
             Create book record
             """
- 
             @app.async_response
             @copy_current_request_context
             @require_authorizer
@@ -56,7 +56,6 @@ class LibraryRoutes:
             """
             Get book record
             """
-            #Get book id from request
             book_id = request.args.get('id')
             result = self.library.get_book(book_id)
             response = {"message": result}

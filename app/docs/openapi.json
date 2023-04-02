@@ -1,0 +1,412 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Library API",
+    "version": "1.0.0",
+    "description": "This is the API for Library."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/library/books": {
+      "post": {
+        "summary": "Create a book",
+        "description": "Create a book",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateBookResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get all books",
+        "description": "Get all books",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Filter books by id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Filter books by title",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subtitle",
+            "in": "query",
+            "description": "Filter books by subtitle",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authors",
+            "in": "query",
+            "description": "Filter books by author: author1, author2, author3, ...",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categories",
+            "in": "query",
+            "description": "Filter books by categories: categorie1, categorie2, categorie3, ...",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "publication_date",
+            "in": "query",
+            "description": "Filter books by publication date",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "publisher",
+            "in": "query",
+            "description": "Filter books by publisher",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "Filter books by description",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "image",
+            "in": "query",
+            "description": "Filter books by image URL",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CreateBookResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/library/books/{id}":{
+      "delete": {
+        "summary": "Delete a book",
+        "description": "Delete a book",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the book",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateBookResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+    "security": [
+      {
+        "ApiKey": []
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "ApiKey": {
+          "type": "apiKey",
+          "in": "header",
+          "name": "Authorization"
+        }
+      },
+      "schemas": {
+        "CreateBookRequest": {
+          "type": "object",
+          "properties": {
+              "id": {
+                  "type": "string",
+                  "description": "Identificador único del libro."
+              },
+              "source": {
+                  "type": "string",
+                  "description": "Fuente desde la que se obtuvo la información del libro."
+              },
+              "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Título del libro."
+              },
+              "subtitle": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Subtítulo del libro."
+              },
+              "authors": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Autores del libro."
+              },
+              "categories": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Categorías del libro."
+              },
+              "publication_date": {
+                  "type": "string",
+                  "format": "date",
+                  "nullable": true,
+                  "description": "Fecha de publicación del libro en formato YYYY-MM-DD."
+              },
+              "publisher": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Editorial que publicó el libro."
+              },
+              "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Descripción del libro."
+              },
+              "image": {
+                  "type": "string",
+                  "description": "URL de la imagen de portada del libro."
+              }
+          },
+          "required": ["id", "source"],
+          "description": "Esquema de datos para crear un nuevo libro."
+      },
+        "CreateBookResponse": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The id of the book"
+            },
+            "title": {
+              "type": "string",
+              "description": "The title of the book"
+            },
+            "author": {
+              "type": "string",
+              "description": "The author of the book"
+            }
+          }
+        },
+        "ErrorResponse": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "The error message"
+            }
+          }
+        }
+      }
+    }
+  }

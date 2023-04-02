@@ -1,2 +1,8 @@
 pymongo
-#pytest
+flask
+flask_cors
+flask_swagger_ui
+requests
+marshmallow
+asyncio
+motor

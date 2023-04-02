@@ -11,11 +11,11 @@ services:
       - ./data:/data/db
     restart: always
 
-  library:
-    build: .
-    container_name: library
-    ports:
-      - "3000:3000"
-    depends_on:
-      - mongo
-    restart: always
+  # library:
+  #   build: .
+  #   container_name: library
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - mongo
+  #   restart: always

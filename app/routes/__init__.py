@@ -1,2 +1,2 @@
 """Routes for the application."""
-from .library import Library
+from .library import LibraryRoutes

@@ -1,10 +1,9 @@
 """Database factory module."""
 import os
-from dao.mongodb import MongoDB
-
+from app.dao.mongo.mongodb import MongoDBDAOFactory
 
 databse = {
-    "mongodb": MongoDB,
+    "mongodb": MongoDBDAOFactory,
 }
 
 class DatabaseFactory:

@@ -33,10 +33,9 @@ class LibraryRoutes:
             """
             app.preprocess_request()
             _input = request.get_json()
-            self.library.create_book(_input)
-            
-            response = {"message": "Accepted"}
-            return jsonify(response), 202
+            result, code = self.library.create_book(_input)
+            response = {"message": result}
+            return jsonify(response), code
 
         @self.blue_print.route("/books", methods=["GET"])
         @require_authorizer
@@ -50,10 +49,9 @@ class LibraryRoutes:
             except ValidationError as err:
                 return jsonify({"error": err.messages}), 400
 
-            result = self.library.search_books(args)
-            print(result)
+            result, code = self.library.search_books(args)
             response = {"message": result}
-            return jsonify(response), 200
+            return jsonify(response), code
 
         @self.blue_print.route("/books/<id>", methods=["GET"])
         @require_authorizer

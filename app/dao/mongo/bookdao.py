@@ -1,4 +1,5 @@
 """Book DAO"""""
+import pymongo
 from pymongo.errors import DuplicateKeyError
 
 class BookDAO:
@@ -11,12 +12,13 @@ class BookDAO:
     def create(self, book):
         """Create book"""
         try:
-            result = self.collection.insert_one(book)
+            self.collection.create_index([("id", pymongo.ASCENDING)], unique=True)
+            self.collection.insert_one(book)
+            return book, 201
         except DuplicateKeyError:
-            result = None
-        return result
+            return "Book already exists", 409
 
-    def search(self, query):
+    def search(self, query, from_=0, size=10):
         """Search books"""
         db_query = {}
         for key, value in query.items():
@@ -26,8 +28,7 @@ class BookDAO:
                 db_query[key] = {"$in": value}
             else:
                 db_query[key] = value
-
-        result = self.collection.find(db_query, {"_id": 0})
+        result = self.collection.find(db_query, {"_id": 0}).skip(from_).limit(size)
         return list(result)
 
     def get(self, book_id):

@@ -132,7 +132,7 @@
             }
           },
           {
-            "name": "publication_date",
+            "name": "publishedDate",
             "in": "query",
             "description": "Filter books by publication date",
             "schema": {
@@ -336,46 +336,6 @@
               "source": {
                   "type": "string",
                   "description": "Fuente desde la que se obtuvo la información del libro."
-              },
-              "title": {
-                  "type": "string",
-                  "minLength": 1,
-                  "description": "Título del libro."
-              },
-              "subtitle": {
-                  "type": "string",
-                  "minLength": 1,
-                  "description": "Subtítulo del libro."
-              },
-              "authors": {
-                  "type": "string",
-                  "minLength": 1,
-                  "description": "Autores del libro."
-              },
-              "categories": {
-                  "type": "string",
-                  "minLength": 1,
-                  "description": "Categorías del libro."
-              },
-              "publication_date": {
-                  "type": "string",
-                  "format": "date",
-                  "nullable": true,
-                  "description": "Fecha de publicación del libro en formato YYYY-MM-DD."
-              },
-              "publisher": {
-                  "type": "string",
-                  "minLength": 1,
-                  "description": "Editorial que publicó el libro."
-              },
-              "description": {
-                  "type": "string",
-                  "minLength": 1,
-                  "description": "Descripción del libro."
-              },
-              "image": {
-                  "type": "string",
-                  "description": "URL de la imagen de portada del libro."
               }
           },
           "required": ["id", "source"],
@@ -385,18 +345,54 @@
           "type": "object",
           "properties": {
             "id": {
-              "type": "string",
-              "description": "The id of the book"
+                "type": "string",
+                "description": "Identificador único del libro."
+            },
+            "source": {
+                "type": "string",
+                "description": "Fuente desde la que se obtuvo la información del libro."
             },
             "title": {
-              "type": "string",
-              "description": "The title of the book"
+                "type": "string",
+                "minLength": 1,
+                "description": "Título del libro."
             },
-            "author": {
-              "type": "string",
-              "description": "The author of the book"
+            "subtitle": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Subtítulo del libro."
+            },
+            "authors": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Autores del libro."
+            },
+            "categories": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Categorías del libro."
+            },
+            "publishedDate": {
+                "type": "string",
+                "format": "date",
+                "nullable": true,
+                "description": "Fecha de publicación del libro en formato YYYY-MM-DD."
+            },
+            "publisher": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Editorial que publicó el libro."
+            },
+            "description": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Descripción del libro."
+            },
+            "image": {
+                "type": "string",
+                "description": "URL de la imagen de portada del libro."
             }
-          }
+        }
         },
         "ErrorResponse": {
           "type": "object",

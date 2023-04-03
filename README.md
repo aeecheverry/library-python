@@ -1,4 +1,4 @@
-# Backend developer - Prueba técnica
+# Backend developer
 
 Desarrollar una API web que permita administrar una pequeña biblioteca.
 

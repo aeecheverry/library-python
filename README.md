@@ -30,8 +30,12 @@ Escogí usar docker y docker-compose para facilitar el despliegue de la aplicaci
 ### Setup
 
 Para iniciar la aplicación, se puede ejecutar cualquiera de los siguientes archivos:
-1. `run_on_docker.sh` en la raíz del proyecto. Este archivo se encarga de construir las imágenes de docker y ejecutar los contenedores.
-2. `run_on_local.sh` en la raíz del proyecto. Este archivo se encarga de instalar las dependencias de python y ejecutar la aplicación de manera local.
+1. `run_on_local.sh` en la raíz del proyecto. Este archivo se encarga de instalar las dependencias de python y ejecutar la aplicación de manera local.
+
+```
+$ chmod +x run_on_local.sh
+$ sh run_on_local.sh
+```
 
 ### API
 

@@ -43,7 +43,7 @@ Se implementó la documentación de la API usando OpenAPI 3.0. Esto permite una 
 
 La API consta de 3 rutas:
 
-- GET /books: Obtiene los libros de la base de datos por medio de filtros
+- GET library/books: Obtiene los libros de la base de datos por medio de filtros
     - Query params:
         - id: Filtra por id
         - title: Filtra por titulo
@@ -55,7 +55,7 @@ La API consta de 3 rutas:
         - description: Filtra por descripción
     - Ejemplo: `http://localhost:3000/books?id=identificador&author=autor1,autor2&category=categoria1,categoria2`
 
-- POST /books: Crea un nuevo libro en la base de datos
+- POST library/books: Crea un nuevo libro en la base de datos
     - Body:
         - id: Identificador del libro
         - source: Fuentes de donde se obtuvo la información del libro: `google` | `db_interna` | `otro`
@@ -66,7 +66,7 @@ La API consta de 3 rutas:
         "source": "google"
     }
     ```
-- DELETE /books/{id}: Elimina un libro de la base de datos
+- DELETE library/books/{id}: Elimina un libro de la base de datos
     - Ejemplo: `http://localhost:3000/books/identificador`
 
 ### Tecnologías

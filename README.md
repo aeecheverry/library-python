@@ -2,7 +2,7 @@
 
 Desarrollar una API web que permita administrar una pequeña biblioteca.
 
-## Desiciones de diseño
+## Decisiones de diseño
 
 Opte por usar Flask como framework de desarrollo, para implementar una arquitectura 3-tier, con una capa de negocio, una capa de acceso a datos y una capa de rutas. Esto permite una mayor escalabilidad y mantenibilidad del código. 
 
